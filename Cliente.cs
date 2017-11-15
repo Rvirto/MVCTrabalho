@@ -8,10 +8,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-namespace Model.Model
+namespace MVCTrabalho.Model
 {
+    [Table("Clientes")]
     public class Cliente
     {
+        public Cliente()
+        {
+            this.Pedidos = new HashSet<Pedidos>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]
@@ -24,8 +30,7 @@ namespace Model.Model
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "Campo obrigatório e somente números")]
-        [Range(9,12, ErrorMessage = "O campo tem que ter entre 9 e 12 números")]
-        public int tel { get; set; }
+        public Double tel { get; set; }
 
         [Display(Name = "Endereço")]
         [Required(ErrorMessage = "Campo obrigatório")]
@@ -47,5 +52,8 @@ namespace Model.Model
         [StringLength(2, ErrorMessage = "Campo UF tem no máximo 2 caracteres")]
         [MinLength(2, ErrorMessage = "Tem que ter no mínimo 2 caracteres")]
         public string uf { get; set; }
+
+        [Display(Name = "Lista de Pedidos")]
+        public virtual ICollection<Pedidos> Pedidos { get; set; }
     }
 }

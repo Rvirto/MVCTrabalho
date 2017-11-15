@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model.Model
+namespace MVCTrabalho.Model
 {
+    [Table("Produtos")]
     public class Produtos
     {
+        public Produtos()
+        {
+            this.Pedidos = new HashSet<Pedidos>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]
@@ -32,6 +38,10 @@ namespace Model.Model
 
         [Display(Name = "Valor R$")]
         [Required(ErrorMessage = "Campo obrigatório")]
-        public float valor { get; set; }
+        public decimal valor { get; set; }
+
+        [Display(Name = "Lista de Pedidos")]
+        public virtual ICollection<Pedidos> Pedidos { get; set; }
+
     }
 }

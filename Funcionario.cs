@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model.Model
+namespace MVCTrabalho.Model
 {
     public class Funcionario
     {
@@ -22,8 +22,7 @@ namespace Model.Model
 
         [Display(Name = "Telefone")]
         [Required(ErrorMessage = "Campo obrigatório e somente números")]
-        [Range(9, 12, ErrorMessage = "O campo tem que ter entre 9 e 12 números")]
-        public int tel { get; set; }
+        public Double tel { get; set; }
 
         [Display(Name = "Endereço")]
         [Required(ErrorMessage = "Campo obrigatório")]
