@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MVCTrabalho.Model
+namespace MVCPadaria.Models
 {
     public class Pedidos
     {
@@ -26,10 +25,11 @@ namespace MVCTrabalho.Model
         public int quantidade { get; set; }
 
 
-        public int produtoID {get; set;}
+        public int produtoID { get; set; }
         public virtual Produtos produto { get; set; }
-        public virtual string Nomeproduto { get { return produto.descricao + "-" + produto.valor; } }
+        public virtual string Nomeproduto { get { return produto.descricao; } }
 
-
+        [DataType(DataType.Currency)]
+        public decimal total { get; set; }
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
-
-namespace MVCTrabalho.Model
+namespace MVCPadaria.Models
 {
     [Table("Clientes")]
     public class Cliente
@@ -34,7 +31,7 @@ namespace MVCTrabalho.Model
 
         [Display(Name = "Endereço")]
         [Required(ErrorMessage = "Campo obrigatório")]
-        [StringLength(50, ErrorMessage ="O campo deve ter no máximo 50 caracteres")]
+        [StringLength(50, ErrorMessage = "O campo deve ter no máximo 50 caracteres")]
         public string endereco { get; set; }
 
         [Display(Name = "Bairro")]

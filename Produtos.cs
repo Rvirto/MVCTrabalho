@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MVCTrabalho.Model
+namespace MVCPadaria.Models
 {
     [Table("Produtos")]
     public class Produtos
     {
-        public Produtos()
+       public Produtos()
         {
             this.Pedidos = new HashSet<Pedidos>();
         }
@@ -33,11 +32,12 @@ namespace MVCTrabalho.Model
 
         [Display(Name = "Quantidade")]
         [Required(ErrorMessage = "Campo obrigatório")]
-        [Range(0,100, ErrorMessage = "A quantidade tem de estar no máximo entre 0 e 100")]
+        [Range(0, 100, ErrorMessage = "A quantidade tem de estar no máximo entre 0 e 100")]
         public int quantidade { get; set; }
 
         [Display(Name = "Valor R$")]
         [Required(ErrorMessage = "Campo obrigatório")]
+        [DataType(DataType.Currency)]
         public decimal valor { get; set; }
 
         [Display(Name = "Lista de Pedidos")]
